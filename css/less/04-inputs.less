@@ -325,9 +325,13 @@ select.form-input:required:invalid {
 		filter: none;
 		opacity: 0;
 	}
-	&.checked {
+	&.checked, &.active {
+		color: var(--clr-att);
 		&:before {
 			opacity: 1;
+		}
+		&:hover {
+			color: var(--clr-att-light);
 		}
 	}
 }

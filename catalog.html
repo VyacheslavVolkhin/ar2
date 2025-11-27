@@ -185,12 +185,58 @@
                 <!--menu-box-->
                 <div class="menu-box">
                     <div class="filter-inner-wrap">
-                        <a href="" class="btn button-link btn-filter">
+                        <a href="" class="btn button-link btn-filter js-popup-open" data-popup="popup-filter">
                             <div class="button-ico">
                                 <img src="./img/icons/filter.svg" alt="">
                             </div>
                             <div class="button-title">Фильтрация</div>
                         </a>
+                        <!--popup-outer-box-->
+                        <div class="popup-outer-box" id="popup-filter">
+                            <div class="popup-box">
+                                <div class="popup-title-wrap">
+                                    <div class="popup-actions">
+                                        <a href="" class="btn button-main btn-popup-back">
+                                            <div class="button-ico btn-action-ico ico-back"></div>
+                                        </a>
+                                        <a href="" class="btn button-main btn-popup-close js-popup-close">
+                                            <div class="button-ico btn-action-ico ico-close"></div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="popup-content-wrap">
+                                    <form action="/" class="form-box frm-popup js-toggle-buttons">
+                                        <!--menu-inner-box-->
+                                        <div class="menu-inner-box">
+                                            <ul class="menu">
+                                                <li>
+                                                    <a href="" class="btn button-menu button-menu-check js-btn-tgl-one">
+                                                        <div class="button-title">Вкусно</div>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="" class="btn button-menu button-menu-check js-btn-tgl-one">
+                                                        <div class="button-title">Немного солено</div>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="" class="btn button-menu button-menu-check js-btn-tgl-one">
+                                                        <div class="button-title">Лучше горьковато</div>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="" class="btn button-menu button-menu-check js-btn-tgl-one">
+                                                        <div class="button-title">А не, давайте пресно</div>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <!--/menu-inner-box-->
+                                    </form>
+                                </div>
+                            </div>
+                        </div><!--/popup-outer-box-->
+
                     </div>
                     <div class="menu-inner-wrap">
                         <div class="slider-inner-wrap slider-menu">
@@ -1163,6 +1209,7 @@
             </div>
         </div>
     </div><!--/popup-outer-box-->
+
 
 </body>
 

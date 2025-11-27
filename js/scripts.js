@@ -380,6 +380,31 @@ document.addEventListener("DOMContentLoaded", function() {
 	});
 
 
+	//slider actions
+	const slidersactions = document.querySelectorAll(".slider-actions");
+	slidersactions.forEach((container) => {
+		const swiperEl = container.querySelector(".swiper");
+		if (!swiperEl) return;
+		new Swiper(swiperEl, {
+			loop: false,
+			slidesPerGroup: 1,
+			slidesPerView: 'auto',
+			spaceBetween: 0,
+			autoHeight: false,
+			speed: 400,
+			pagination: false,
+			autoplay: {
+				delay: 4000,
+				disableOnInteraction: false,
+			},
+			navigation: false,
+			breakpoints: {
+				720: { slidesPerView: 2 },
+			},
+		});
+	});
+
+
 	//slider tiles
 	const sliderstiles = document.querySelectorAll(".slider-tiles");
 	sliderstiles.forEach((container) => {
@@ -399,7 +424,10 @@ document.addEventListener("DOMContentLoaded", function() {
 				el: paginationEl,
 				clickable: true,
 			},
-			autoplay: false,
+			autoplay: {
+				delay: 4000,
+				disableOnInteraction: false,
+			},
 			navigation: {
 				nextEl: nextEl,
 				prevEl: prevEl,

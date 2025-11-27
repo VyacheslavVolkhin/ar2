@@ -1,3 +1,5 @@
+
+
 body.popup-open {
 	overflow: hidden;
 }
@@ -102,6 +104,11 @@ body.popup-open {
 	}
 }
 @media (max-width: 719px) {
+	.page-full {
+		&:has(.menu-box .popup-outer-box.active) {
+			z-index: inherit;
+		}
+	}
 	.popup-outer-box {
 		overflow: hidden;
 		&.popup-map {
@@ -167,6 +174,25 @@ body.popup-open {
 			left: 0;
 			right: 0;
 			padding: 0 var(--paddingContainer);
+		}
+	}
+}
+@media (min-width: 720px) {
+	.menu-box {
+		.popup-outer-box {
+			position: absolute;
+			top: 100%;
+			left: 0;
+			right: auto;
+			bottom: auto;
+			width: 420px;
+			padding: 0;
+			background: none;
+			margin: 20px 0 0 0;
+			backdrop-filter: none;
+			.popup-box {
+				margin: 0;
+			}
 		}
 	}
 }
