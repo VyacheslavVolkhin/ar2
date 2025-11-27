@@ -196,7 +196,12 @@
 		text-align: right;
 	}
 	.tile-title {
-		font-weight: 500;
+		font-weight: 400;
+		a {
+			&:not(:hover) {
+				color: inherit;
+			}
+		}
 	}
 	.tile-info {
 		display: block;
@@ -943,6 +948,9 @@
 		}
 		.tile-total-wrap {
 			padding: 20px 0;
+		}
+		.tile-title {
+			font-weight: 500;
 		}
 		.elm-photo {
 			aspect-ratio: 154/130;

@@ -10,7 +10,7 @@
   --clr-bg-light: #fff;
   --clr-alert: #F55760;
   --clr-succefull: #43AE00;
-  --sectionMargin: 35px;
+  --sectionMargin: 30px;
   --fsize: 16px;
   --lhsize: 1.2;
   --mbsize: 1.2em;
@@ -356,6 +356,7 @@ h6:last-child,
     --paddingContainer: 30px;
     --gapMain: 3rem;
     --gapMainHalf: 1.5rem;
+    --sectionMargin: 6rem;
   }
 }
 @media (min-width: 1400px) {
@@ -434,6 +435,7 @@ html.with-fancybox body.hide-scrollbar {
   -ms-flex: 1 0 auto;
       flex: 1 0 auto;
   margin-bottom: var(--sectionMargin);
+  z-index: 2;
 }
 .wrap,
 .header,
@@ -709,6 +711,9 @@ html.with-fancybox body.hide-scrollbar {
     bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
+  }
+  .header .panel-title {
+    color: var(--clr-att);
   }
   .header .elm-photo:nth-child(3) {
     margin-left: 0;
@@ -1031,7 +1036,10 @@ html.with-fancybox body.hide-scrollbar {
   text-align: right;
 }
 .item-tile-cart .tile-title {
-  font-weight: 500;
+  font-weight: 400;
+}
+.item-tile-cart .tile-title a:not(:hover) {
+  color: inherit;
 }
 .item-tile-cart .tile-info {
   display: block;
@@ -2072,6 +2080,9 @@ html.with-fancybox body.hide-scrollbar {
   .item-tile-cart .tile-total-wrap {
     padding: 20px 0;
   }
+  .item-tile-cart .tile-title {
+    font-weight: 500;
+  }
   .item-tile-cart .elm-photo {
     aspect-ratio: 154/130;
   }
@@ -2593,7 +2604,22 @@ html.with-fancybox body.hide-scrollbar {
 }
 .main-top-box {
   position: relative;
-  z-index: -1;
+}
+.main-top-box:has(.box-inner-wrap:hover) .bg-full-wrap img {
+  transform: scale(1.03);
+}
+.main-top-box .section-link {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 100dvw;
+  min-width: var(--min);
+  transform: translateX(-50%);
+}
+.main-top-box a.section-link {
+  z-index: 20;
 }
 .main-top-box .bg-full-wrap {
   min-height: 874px;
@@ -2738,8 +2764,8 @@ html.with-fancybox body.hide-scrollbar {
 .menu-box .btn-menu .button-title:after {
   content: "";
   display: block;
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
   background: currentColor;
   position: absolute;
@@ -2759,7 +2785,7 @@ html.with-fancybox body.hide-scrollbar {
   bottom: 2px;
   left: 10px;
   right: 10px;
-  height: 2px;
+  height: 1px;
   filter: none;
   background: currentColor;
   opacity: 0;
@@ -2894,6 +2920,9 @@ html.with-fancybox body.hide-scrollbar {
   min-width: var(--min);
   transform: translateX(-50%);
   overflow: hidden;
+}
+.bg-full-wrap img {
+  transition: all ease-out 1s;
 }
 .bg-box {
   position: relative;
@@ -4312,6 +4341,12 @@ select.form-input:required:invalid {
 .frm-field-counter .button-plus:after {
   left: 16px;
 }
+.frm-field-counter .btn-action-ico.ico-minus:hover:before,
+.frm-field-counter .btn-action-ico.ico-plus:hover:before,
+.frm-field-counter .btn-action-ico.ico-minus:hover:after,
+.frm-field-counter .btn-action-ico.ico-plus:hover:after {
+  background-color: var(--clr-att-second);
+}
 .frm-field-counter .form-input {
   height: 28px;
   text-align: center;
@@ -4401,7 +4436,7 @@ select.form-input:required:invalid {
   overflow: visible;
 }
 .frm-select-toggle.type-dark input:not(:checked) ~ label:before {
-  background: rgba(90, 102, 64, 0.5);
+  background: rgba(90, 102, 64, 0.2);
 }
 .frm-select-toggle.type-left label {
   padding-right: 0;
@@ -5748,28 +5783,28 @@ input.form-clear-autofill::-webkit-contacts-auto-fill-button {
 \* ----------------------------------- */
 @font-face {
   font-family: 'PT Root UI';
-  src: url('../fontsPTRootUI-Medium.woff2') format('woff2'), url('../fontsPTRootUI-Medium.woff') format('woff');
+  src: url('../fonts/PTRootUI-Medium.woff2') format('woff2'), url('../fonts/PTRootUI-Medium.woff') format('woff');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'PT Root UI';
-  src: url('../fontsPTRootUI-Light.woff2') format('woff2'), url('../fontsPTRootUI-Light.woff') format('woff');
+  src: url('../fonts/PTRootUI-Light.woff2') format('woff2'), url('../fonts/PTRootUI-Light.woff') format('woff');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'PT Root UI';
-  src: url('../fontsPTRootUI-Bold.woff2') format('woff2'), url('../fontsPTRootUI-Bold.woff') format('woff');
+  src: url('../fonts/PTRootUI-Bold.woff2') format('woff2'), url('../fonts/PTRootUI-Bold.woff') format('woff');
   font-weight: bold;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'PT Root UI';
-  src: url('../fontsPTRootUI-Regular.woff2') format('woff2'), url('../fontsPTRootUI-Regular.woff') format('woff');
+  src: url('../fonts/PTRootUI-Regular.woff2') format('woff2'), url('../fonts/PTRootUI-Regular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -5809,7 +5844,7 @@ body.popup-open {
   -ms-flex-align: center;
       align-items: center;
   position: fixed;
-  z-index: 100;
+  z-index: 1000;
   background: rgba(90, 102, 64, 0.15);
   -webkit-backdrop-filter: blur(7.5px);
           backdrop-filter: blur(7.5px);

@@ -303,14 +303,14 @@ document.addEventListener("DOMContentLoaded", function() {
 	});
 	document.querySelectorAll(".popup-outer-box").forEach(function (element) {
 	element.addEventListener("click", function (event) {
-		if (!event.target.closest(".popup-box")) {
-		document.body.classList.remove("popup-open");
-		document.body.classList.remove("popup-open-scroll");
-		document.querySelectorAll(".popup-outer-box").forEach(function (e) {
-			e.classList.remove("active");
-				});
-		return false;
-			}
+				// if (!event.target.closest(".popup-box")) {
+				// 			document.body.classList.remove("popup-open");
+				// 			document.body.classList.remove("popup-open-scroll");
+				// 			document.querySelectorAll(".popup-outer-box").forEach(function (e) {
+				// 				e.classList.remove("active");
+				// 		});
+				// 	return false;
+				// }
 		});
 	});
 

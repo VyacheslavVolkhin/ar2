@@ -72,12 +72,23 @@
 			opacity: 0.5;
 			pointer-events: none;
 		}
+		&:hover {
+		}
 	}
 	.button-plus {
 		left: auto;
 		right: 0;
 		&:before, &:after {
 			left: 16px;
+		}
+	}
+	.btn-action-ico {
+		&.ico-minus, &.ico-plus {
+			&:hover {
+				&:before, &:after {
+					background-color: var(--clr-att-second);
+				}
+			}
 		}
 	}
 	.form-input {
@@ -157,7 +168,7 @@
 			&:not(:checked) {
 				&~label {
 					&:before {
-						background: fade(#5A6640, 50);
+						background: fade(#5A6640, 20);
 					}
 				}
 			}

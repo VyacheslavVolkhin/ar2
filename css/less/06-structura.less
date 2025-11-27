@@ -64,6 +64,7 @@ html.with-fancybox body.hide-scrollbar {
 .page-full {
 	flex: 1 0 auto;
 	margin-bottom: var(--sectionMargin);
+	z-index: 2;
 }
 .wrap, .footer {
 	// -webkit-transform: translate3d(0,0,0);
@@ -303,6 +304,9 @@ html.with-fancybox body.hide-scrollbar {
 			position: fixed;
 			bottom: 30px;left: 50%;
 			transform: translateX(-50%);
+		}
+		.panel-title {
+			color: var(--clr-att);
 		}
 		.elm-photo {
 			&:nth-child(3) {
