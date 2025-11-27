@@ -1,0 +1,163 @@
+body.popup-open {
+	overflow: hidden;
+}
+.popup-outer-box {
+	display: none;
+	padding: 20px var(--paddingContainer);
+	animation: fadein ease 0.2s;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	z-index: 100;
+	background: rgba(90, 102, 64, 0.15);
+	backdrop-filter: blur(7.5px);
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	overflow-y: auto;
+	overflow-x: hidden;
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+	&::-webkit-scrollbar {
+		width: 0;
+		height: 0;
+	}
+	&.active {
+		display: flex;
+	}
+}
+.popup-box {
+	display: flex;
+	margin: auto;
+	flex-direction: column;
+	flex-shrink: 0;
+	position: relative;
+	overflow: hidden;
+	width: 420px;
+	max-width: 100%;
+	max-height: inherit;
+	background-color: #fff;
+	z-index: 20;
+	border-radius: 25px;
+	background: var(--clr-bg);
+	box-shadow: 0 3px 5px 0 rgba(90, 102, 64, 0.03), 0 5px 10px 0 rgba(90, 102, 64, 0.06), 0 30px 70px 0 rgba(90, 102, 64, 0.15);
+	padding: 30px;
+
+	.popup-title-wrap, .popup-footer-wrap {
+		width: 100%;
+		flex-shrink: 0;
+	}
+	.popup-title-wrap {
+		display: flex;
+		align-items: flex-start;
+		gap: 10px;
+		margin-bottom: 24px;;
+	}
+	.popup-content-wrap {
+		width: 100%;
+	}
+	.popup-title {
+		flex: 1;
+		font-size: 18px;
+		line-height: 1.2;
+		font-weight: 500;
+		min-height: 30px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+	.popup-actions {
+		display: flex;
+		gap: 10px;
+		flex-shrink: 0;
+		justify-content: flex-end;
+		&:first-child {
+			flex: 1;
+		}
+		.btn {
+			width: 30px;height: 30px;
+			border-radius: 50%;
+			flex-shrink: 0;
+			padding: 0;
+			.btn-action-ico {
+				width: 24px;height: 24px;
+			}
+		}
+		.btn-popup-back {
+			margin-right: auto;
+		}
+	}
+}
+.popup-tiles-box {
+	.items-wrap {
+		gap: 12px 0;
+		margin: 0 -6px;
+	}
+	.item-wrap {
+		padding: 0 6px;
+		width: 33.33%;
+	}
+}
+@media (max-width: 719px) {
+	.popup-outer-box {
+		overflow: hidden;
+	}
+	.popup-box {
+		padding: 80px var(--paddingContainer) 30px var(--paddingContainer);
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		border-radius: 0;
+		margin: 0;
+		box-shadow: none;
+		width: 100%;
+		overflow-y: auto;
+		overflow-x: hidden;
+		scrollbar-width: none;
+		-ms-overflow-style: none;
+		&::-webkit-scrollbar {
+			width: 0;
+			height: 0;
+		}
+		.popup-title-wrap {
+			position: static;
+			margin-bottom: 18px;
+		}
+		.popup-title {
+			min-height: 0;
+		}
+		.popup-actions {
+			justify-content: flex-end;
+			position: absolute;
+			top: 20px;
+			left: 0;
+			right: 0;
+			padding: 0 var(--paddingContainer);
+		}
+	}
+}
+@media (min-width: 1024px) {
+	.popup-outer-box {
+		padding-right: var(--paddingContainer);
+		&.popup-right {
+			padding-top: 11rem;
+			align-items: flex-start;
+			.popup-box {
+				margin-top: 0;
+				margin-right: 0;
+			}
+		}
+	}
+}
+@media (min-width: 1250px) {
+	.popup-outer-box {
+		&.popup-right {
+			padding-right: calc((100dvw - var(--max)) / 2 + var(--paddingContainer));
+		}
+	}
+}
