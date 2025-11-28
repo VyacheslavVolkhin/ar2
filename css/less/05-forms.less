@@ -26,6 +26,16 @@
 		.btn {
 			width: 100%;
 		}
+		.button-link {
+			font-size: 16px;
+			line-height: 1.2;
+			font-weight: 500;
+			color: var(--clr-att);
+			margin-top: 3rem;
+			&:hover {
+				color: var(--clr-att-second);
+			}
+		}
 	}
 }
 .frm-pay {
@@ -70,7 +80,7 @@
 		}
 		&.button-disabled {
 			opacity: 0.5;
-			pointer-events: none;
+			pointer-events: auto;
 		}
 		&:hover {
 		}
@@ -119,7 +129,7 @@
     display: block;
     width: 100%;
 }
-.frm-select, .frm-select-toggle, .frm-select-component {
+.frm-select, .frm-select-toggle, .frm-select-component, .frm-select-check {
 	position: relative;
 	display: block;
 	overflow: hidden;
@@ -154,7 +164,42 @@
 		}
 	}
 }
-
+.frm-select-check {
+	font-size: 16px;
+	line-height: 21px;
+	font-weight: 500;
+	color: var(--clr-att);
+	input {
+		&:checked {
+			&~label {
+				&:before {
+					opacity: 1;
+				}
+			}
+		}
+	}
+	label {
+		width: 100%;
+		padding: 14px 50px 14px 20px;
+		display: flex;
+		align-items: center;
+		position: relative;
+		overflow: hidden;
+		&:before {
+			content: "";
+			display: block;
+			width: 18px;
+			height: 24px;
+			position: absolute;
+			background: url(../img/icons/check.svg) center no-repeat;
+			background-size: 100% auto;
+			top: 50%;right: 20px;
+			margin-top: -12px;
+			opacity: 0;
+			transition: all ease 0.2s;
+		}
+	}
+}
 .frm-select-toggle {
 	font-size: 16px;
 	line-height: 1.2;

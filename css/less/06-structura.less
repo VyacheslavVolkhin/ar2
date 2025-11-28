@@ -158,8 +158,17 @@ html.with-fancybox body.hide-scrollbar {
 		padding-left: 40px;
 		padding-right: 3px;
 		border-radius: 25px;
-		gap:4rem;
+		gap: 35px;;
 		white-space: nowrap;
+	}
+	.panel-items {
+		padding-left: 15px;
+		display: flex;
+		flex-direction: row-reverse;
+		flex-shrink: 0;
+		&:empty {
+			padding-left: 0;
+		}
 	}
 	.panel-title {
 		font-size: 20px;
@@ -169,9 +178,6 @@ html.with-fancybox body.hide-scrollbar {
 		flex: 1;
 	}
 	.panel-items {
-		display: flex;
-		flex-direction: row-reverse;
-		flex-shrink: 0;
 	}
 	.elm-photo {
 		width: 44px;height: 44px;
@@ -179,9 +185,9 @@ html.with-fancybox body.hide-scrollbar {
 		background: #fff;
 		margin-left: -29px;
 		flex-shrink: 0;
-		box-shadow: 5px 0 10px rgba(0, 0, 0, 0.25), 5px 0 10px rgba(0, 0, 0, 0.25);
-		&:last-child {
-			margin-left: 0;
+		filter: drop-shadow(5px 0 10px rgba(0, 0, 0, 0.25)) drop-shadow(5px 0 10px rgba(0, 0, 0, 0.25));
+		&:nth-child(4)~.elm-photo {
+			display: none;
 		}
 	}
 	.btn-action {
@@ -304,13 +310,13 @@ html.with-fancybox body.hide-scrollbar {
 			position: fixed;
 			bottom: 30px;left: 50%;
 			transform: translateX(-50%);
+			gap: 40px;
 		}
 		.panel-title {
 			color: var(--clr-att);
 		}
 		.elm-photo {
 			&:nth-child(3) {
-				margin-left: 0;
 				&~.elm-photo {
 					display: none;
 				}
@@ -369,12 +375,27 @@ html.with-fancybox body.hide-scrollbar {
 	.wrap-main {
 		.header {
 			padding-bottom: 30px;
+			position: fixed;
+		}
+		&.header-fixed {
+			.header {
+				padding-top: 10px;
+				padding-bottom: 10px;
+				background: rgba(0, 0, 0, 0.25);
+				.logo-inner-wrap {
+					width: 56px;
+				}
+			}
 		}
 	}
 	
 	.header {
+		transition: all ease 0.2s;
 		padding-top: 30px;
 		padding-bottom: 30px;;
+		.logo-inner-wrap {
+			transition: width ease 0.2s;
+		}
 	}
 	.footer {
 		.info-inner-wrap {

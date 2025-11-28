@@ -1,5 +1,5 @@
 <!--popup-outer-box-->
-<div class="popup-outer-box" id="popup-filter">
+<div class="popup-outer-box popup-filter" id="popup-filter">
 	<div class="popup-box">
 		<div class="popup-title-wrap">
 			<div class="popup-actions">
@@ -17,28 +17,54 @@
 				<div class="menu-inner-box">
 					<ul class="menu">
 						<li>
-							<a href="" class="btn button-menu button-menu-check js-btn-tgl-one">
-								<div class="button-title">Вкусно</div>
-							</a>
+							<div class="frm-select-check">
+								<input type="checkbox" id="select01">
+								<label for="select01">Вегетарианские</label>
+							</div>
 						</li>
 						<li>
-							<a href="" class="btn button-menu button-menu-check js-btn-tgl-one">
-								<div class="button-title">Немного солено</div>
-							</a>
+							<div class="frm-select-check">
+								<input type="checkbox" id="select02">
+								<label for="select02">мясные</label>
+							</div>
 						</li>
 						<li>
-							<a href="" class="btn button-menu button-menu-check js-btn-tgl-one">
-								<div class="button-title">Лучше горьковато</div>
-							</a>
+							<div class="frm-select-check">
+								<input type="checkbox" id="select03">
+								<label for="select03">острые</label>
+							</div>
 						</li>
 						<li>
-							<a href="" class="btn button-menu button-menu-check js-btn-tgl-one">
-								<div class="button-title">А не, давайте пресно</div>
-							</a>
+							<div class="frm-select-check">
+								<input type="checkbox" id="select04">
+								<label for="select04">морепродукты</label>
+							</div>
 						</li>
 					</ul>
 				</div>
 				<!--/menu-inner-box-->
+				<div class="form-inner-wrap">
+					<div class="frm-row">
+						<div class="frm-field field-half">
+							<input type="text" class="form-input" placeholder="Цена, от">
+						</div>
+						<div class="frm-field field-half">
+							<input type="text" class="form-input" placeholder="до">
+						</div>
+					</div>
+					<div class="frm-row-submit">
+						<div class="frm-field">
+							<button type="submit" class="btn">
+								<div class="button-title">Применить</div>
+							</button>
+						</div>
+						<div class="frm-field">
+							<button type="reset" class="btn button-link">
+								<div class="button-title">Очистить фильтр</div>
+							</button>
+						</div>
+					</div>
+				</div>
 			</form>
 		</div>
 	</div>

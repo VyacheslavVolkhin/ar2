@@ -16,6 +16,7 @@
     <script src="./js/swiper-bundle.min.js" defer></script>
     <script src="./js/fancybox.umd.js" defer></script>
     <script src="./js/counter.js" defer></script>
+    <script src="./js/addcart.js" defer></script>
     <script src="./js/scripts.js" defer></script>
 </head>
 
@@ -40,28 +41,9 @@
                     </div>
                     <div class="panel-wrap">
 
-                        <a href="" class="panel-order-wrap elm-panel">
-                            <div class="panel-title" data-unit=" ₽">480</div>
-                            <div class="panel-items">
-                                <div class="elm-photo photo-contain">
-                                    <img src="./img/b01.jpg" alt="">
-                                </div>
-                                <div class="elm-photo photo-contain">
-                                    <img src="./img/b02.jpg" alt="">
-                                </div>
-                                <div class="elm-photo photo-contain">
-                                    <img src="./img/b03.jpg" alt="">
-                                </div>
-                                <div class="elm-photo photo-contain">
-                                    <img src="./img/b01.jpg" alt="">
-                                </div>
-                                <div class="elm-photo photo-contain">
-                                    <img src="./img/b02.jpg" alt="">
-                                </div>
-                                <div class="elm-photo photo-contain">
-                                    <img src="./img/b03.jpg" alt="">
-                                </div>
-                            </div>
+                        <a href="" class="panel-order-wrap elm-panel" id="panel">
+                            <div class="panel-title" data-unit=" ₽">0</div>
+                            <div class="panel-items"></div>
                         </a>
                     </div>
                     <div class="action-wrap">
@@ -189,17 +171,13 @@
                                     <div class="frm-field-counter js-counter">
                                         <button class="js-button-counter-plus btn-action-ico ico-plus button-plus"></button>
                                         <button class="js-button-counter-minus btn-action-ico ico-minus button-minus"></button>
-                                        <input type="text" class="form-input js-input-counter" data-unit="" data-step="1" data-min="0" data-max="15" value="1">
+                                        <input type="text" class="form-input js-input-counter" data-unit="" data-step="1" data-min="0" data-max="15" value="0">
                                     </div>
                                     <div class="panel-action-wrap">
-                                        <a href="" class="btn button-link btn-action">
-                                            <div class="button-title">В корзину <span class="elm-price" data-unit=" ₽">480</span></div>
+                                        <a href="" class="btn button-link btn-action" id="addcart">
+                                            <div class="button-title">В корзину <span class="elm-price" data-unit=" ₽" data-price="480"></span></div>
                                         </a>
                                     </div>
-                                </div>
-                                <div class="elm-price-panel">
-                                    <div class="elm-price" data-unit=" ₽">480</div>
-                                    <div class="price-unit">250 г</div>
                                 </div>
                             </div>
                         </div>

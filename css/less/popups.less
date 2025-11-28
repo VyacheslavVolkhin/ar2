@@ -181,17 +181,24 @@ body.popup-open {
 	.menu-box {
 		.popup-outer-box {
 			position: absolute;
-			top: 100%;
+			top: 0;
 			left: 0;
 			right: auto;
 			bottom: auto;
-			width: 420px;
-			padding: 0;
+			width: 360px;
+			padding: 65px 0 0 0;
 			background: none;
-			margin: 20px 0 0 0;
+			margin: 0 0 0 0;
 			backdrop-filter: none;
+			border-radius: 20px;
+			overflow: hidden;
 			.popup-box {
+				width: 100%;
 				margin: 0;
+				padding: 0;
+				.popup-title-wrap {
+					display: none;
+				}
 			}
 		}
 	}
