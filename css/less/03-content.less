@@ -991,6 +991,24 @@
 			}
 		}
 	}
+	.card-box {
+		position: relative;
+		.photos-inner-wrap {
+			display: block;
+			height: 100px;
+			width: 100px;
+			padding: 0;
+			margin: 0;
+			position: absolute;
+			top: 50%;left: 50%;
+			transform: translate(-50%, -50%);
+			overflow: hidden;
+			order: -100;
+			z-index: -100;
+			pointer-events: none;
+			opacity: 0;
+		}
+	}
 	.actions-box {
 		.scroll-outer-wrap {
 			.items-wrap {

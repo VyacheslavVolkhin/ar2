@@ -5,34 +5,37 @@ document.addEventListener('DOMContentLoaded', function() {
     const plusButton = document.querySelector('.card-box .js-button-counter-plus');
     const minusButton = document.querySelector('.card-box .js-button-counter-minus');
     
-    // Получаем цену за единицу из data-атрибута
-    const pricePerUnit = parseInt(priceElement.getAttribute('data-price'));
-    
-    function updatePrice() {
-        const quantity = parseInt(counterInput.value) || 0;
-        const totalPrice = quantity * pricePerUnit;
-        priceElement.textContent = totalPrice;
-    }
-    
-    // Обновляем цену при загрузке
-    updatePrice();
-    
-    // Обработчики событий
-    plusButton.addEventListener('click', function() {
-        setTimeout(updatePrice, 10);
-    });
-    
-    minusButton.addEventListener('click', function() {
-        setTimeout(updatePrice, 10);
-    });
-    
-    counterInput.addEventListener('input', updatePrice);
-    counterInput.addEventListener('change', updatePrice);
+
+	if (counterInput) {
+		// Получаем цену за единицу из data-атрибута
+		const pricePerUnit = parseInt(priceElement.getAttribute('data-price'));
+		
+		function updatePrice() {
+			const quantity = parseInt(counterInput.value) || 1;
+			const totalPrice = quantity * pricePerUnit;
+			priceElement.textContent = totalPrice;
+		}
+		
+		// Обновляем цену при загрузке
+		updatePrice();
+		
+		// Обработчики событий
+		plusButton.addEventListener('click', function() {
+			setTimeout(updatePrice, 10);
+		});
+		
+		minusButton.addEventListener('click', function() {
+			setTimeout(updatePrice, 10);
+		});
+		
+		counterInput.addEventListener('input', updatePrice);
+		counterInput.addEventListener('change', updatePrice);
+	}
 });
 
 
 
-// Обработчик клика на кнопки плюс и минус
+// Обработчик клика на кнопки плюс и минус в блоках каталога
 document.addEventListener('mousedown', function(e) {
     // Обработка кнопки плюс
     if (e.target.classList.contains('js-button-counter-plus') || 
@@ -69,7 +72,7 @@ document.addEventListener('mousedown', function(e) {
     }
 });
 
-// Обработчик для обновления суммы
+// Обработчик для обновления суммы в блоках каталога
 document.addEventListener('click', function(e) {
     // Обработка кнопки плюс
     if (e.target.classList.contains('js-button-counter-plus') || 
@@ -145,7 +148,6 @@ function animatePhotoToPanel(originalPhoto, clonedPhoto) {
 }
 
 // Удаление товара из панели
-// Удаление товара из панели
 function removeFromPanel(counter) {
     const tile = counter.closest('.item-tile-catalog');
     
@@ -173,8 +175,9 @@ function removeFromPanel(counter) {
     }
 }
 
-// Обновление общей суммы в панели (объединенная функция)
+// Обновление общей суммы в панели (объединенная функция для карточки и каталога)
 function updatePanelTotal() {
+	console.log('updatePanelTotal')
     const panelTitle = document.querySelector('#panel .panel-title');
     let newTotal = 0;
     
@@ -248,7 +251,6 @@ document.addEventListener('DOMContentLoaded', updatePanelTotal);
 document.addEventListener('click', function(e) {
     // Проверяем, была ли нажата кнопка с id="addcart"
     if (e.target.id === 'addcart' || e.target.closest('#addcart')) {
-        
         e.preventDefault();
         
         const button = e.target.id === 'addcart' 
@@ -267,6 +269,7 @@ document.addEventListener('click', function(e) {
 
 // Функция для добавления товара из карточки в панель
 function addCardProductToPanel(cardBox) {
+	console.log('addCardProductToPanel')
     // Находим .elm-photo из активного слайда слайдера
     const firstSlidePhoto = cardBox.querySelector('.slider-wrap .swiper-slide-active .elm-photo');
     

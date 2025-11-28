@@ -103,6 +103,22 @@ body.popup-open {
 		width: 33.33%;
 	}
 }
+.popup-filter {
+	.frm-field.field-half {
+		&:first-child {
+			&:before {
+				content: "";
+				display: block;
+				width: 10%;height: 2px;
+				background: var(--clr-bg-light);
+				position: absolute;
+				top: 50%;left: 100%;
+				margin-top: -1px;
+				margin-left: -5px;;
+			}
+		}
+	}
+}
 @media (max-width: 719px) {
 	.page-full {
 		&:has(.menu-box .popup-outer-box.active) {

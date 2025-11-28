@@ -2,6 +2,67 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	const bodyElem = document.querySelector('body')
 
+
+	//components counter
+    const components = document.querySelectorAll('.frm-select-component');
+    components.forEach(component => {
+        const checkbox = component.querySelector('input[type="checkbox"]');
+        const input = component.querySelector('.js-input-counter');
+        const minusBtn = component.querySelector('.js-button-counter-minus');
+        if (parseInt(input.value) >= 1 && !checkbox.checked) {
+            checkbox.checked = true;
+        }
+        if (checkbox.checked) {
+            minusBtn.classList.remove('button-disabled');
+        } else {
+            minusBtn.classList.add('button-disabled');
+        }
+    });
+    document.addEventListener('change', function(e) {
+        if (e.target.matches('.frm-select-component input[type="checkbox"]')) {
+            const checkbox = e.target;
+            const component = checkbox.closest('.frm-select-component');
+            const minusBtn = component.querySelector('.js-button-counter-minus');
+            const input = component.querySelector('.js-input-counter');
+            
+            if (checkbox.checked) {
+                minusBtn.classList.remove('button-disabled');
+                input.value = 1;
+            } else {
+                minusBtn.classList.add('button-disabled');
+                input.value = 0;
+            }
+        }
+    });
+    document.addEventListener('click', function(e) {
+        if (e.target.matches('.frm-select-component .js-button-counter-plus')) {
+            const plusBtn = e.target;
+            const component = plusBtn.closest('.frm-select-component');
+            const checkbox = component.querySelector('input[type="checkbox"]');
+            
+            if (!checkbox.checked) {
+                checkbox.checked = true;
+                checkbox.dispatchEvent(new Event('change'));
+            }
+        }
+    });
+    document.addEventListener('click', function(e) {
+        if (e.target.matches('.frm-select-component .js-button-counter-minus')) {
+            const minusBtn = e.target;
+            const component = minusBtn.closest('.frm-select-component');
+            const checkbox = component.querySelector('input[type="checkbox"]');
+            const input = component.querySelector('.js-input-counter');
+            
+            if (parseInt(input.value) === 0) {
+                checkbox.checked = false;
+                checkbox.dispatchEvent(new Event('change'));
+            }
+        }
+    });
+	
+	
+	
+
 	//fancybox
 	Fancybox.bind("[data-fancybox]", {
 		//settings

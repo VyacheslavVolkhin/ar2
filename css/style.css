@@ -3218,6 +3218,26 @@ html.with-fancybox body.hide-scrollbar {
   .main-top-box.text-mobile-att .box-inner-wrap {
     color: inherit;
   }
+  .card-box {
+    position: relative;
+  }
+  .card-box .photos-inner-wrap {
+    display: block;
+    height: 100px;
+    width: 100px;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    -ms-flex-order: -100;
+        order: -100;
+    z-index: -100;
+    pointer-events: none;
+    opacity: 0;
+  }
   .actions-box .scroll-outer-wrap .items-wrap {
     -ms-flex-wrap: nowrap;
         flex-wrap: nowrap;
@@ -3854,6 +3874,7 @@ select.form-input:required:invalid {
   border-color: rgba(90, 102, 64, 0.05);
   color: rgba(90, 102, 64, 0.1);
   pointer-events: none;
+  cursor: default;
 }
 .button-tab {
   height: 40px;
@@ -4490,10 +4511,14 @@ select.form-input:required:invalid {
   overflow: hidden;
   line-height: 1;
 }
-.frm-select input,
-.frm-select-toggle input,
-.frm-select-component input,
-.frm-select-check input {
+.frm-select input[type="checkbox"],
+.frm-select-toggle input[type="checkbox"],
+.frm-select-component input[type="checkbox"],
+.frm-select-check input[type="checkbox"],
+.frm-select input[type="radio"],
+.frm-select-toggle input[type="radio"],
+.frm-select-component input[type="radio"],
+.frm-select-check input[type="radio"] {
   display: block;
   position: absolute;
   top: 0;
@@ -4637,6 +4662,7 @@ select.form-input:required:invalid {
       flex-direction: column;
   min-height: 100%;
   overflow: visible;
+  position: relative;
 }
 .frm-select-component input:checked ~ label {
   box-shadow: 0 6px 15px 0 rgba(90, 102, 64, 0.25);
@@ -4656,9 +4682,45 @@ select.form-input:required:invalid {
   font-size: 12px;
   line-height: 1.2;
   color: var(--clr-base);
+  padding-bottom: 48px;
 }
 .frm-select-component label:hover {
   box-shadow: 0 6px 15px 0 rgba(90, 102, 64, 0.25);
+}
+.frm-select-component .frm-field-counter {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  z-index: 3;
+  max-width: calc(100% - 20px);
+  padding: 0 30px;
+}
+.frm-select-component .frm-field-counter .button-minus,
+.frm-select-component .frm-field-counter .button-plus {
+  width: 30px;
+}
+.frm-select-component .frm-field-counter .button-minus:before,
+.frm-select-component .frm-field-counter .button-plus:before,
+.frm-select-component .frm-field-counter .button-minus:after,
+.frm-select-component .frm-field-counter .button-plus:after {
+  left: 50%;
+}
+.frm-select-component .frm-field-counter:has(.button-minus.button-disabled) {
+  width: 30px;
+  padding: 0;
+}
+.frm-select-component .frm-field-counter:has(.button-minus.button-disabled) .form-input {
+  display: none;
+}
+.frm-select-component .frm-field-counter:has(.button-minus.button-disabled) .button-minus {
+  display: none;
+}
+.frm-select-component .frm-field-counter:has(.button-minus.button-disabled) .button-plus {
+  width: 28px;
+}
+.frm-select-component .frm-field-counter:has(.button-minus.button-disabled) .button-plus:before,
+.frm-select-component .frm-field-counter:has(.button-minus.button-disabled) .button-plus:after {
+  left: 50%;
 }
 .frm-select-component .elm-photo {
   width: 100%;
@@ -6096,6 +6158,18 @@ body.popup-open {
 .popup-tiles-box .item-wrap {
   padding: 0 6px;
   width: 33.33%;
+}
+.popup-filter .frm-field.field-half:first-child:before {
+  content: "";
+  display: block;
+  width: 10%;
+  height: 2px;
+  background: var(--clr-bg-light);
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  margin-top: -1px;
+  margin-left: -5px;
 }
 @media (max-width: 719px) {
   .page-full:has(.menu-box .popup-outer-box.active) {

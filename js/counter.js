@@ -102,6 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			initializeInput();
 			if (btnPlus.classList.contains('button-disabled')) return;
 			currentValue = parseFloat((currentValue + dataStep).toFixed(10));
+			
 			if (currentValue > dataMax) currentValue = dataMax;
 			input.value = formatValue(currentValue);
 			updateButtons(currentValue);

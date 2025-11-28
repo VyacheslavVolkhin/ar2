@@ -134,7 +134,8 @@
 	display: block;
 	overflow: hidden;
     line-height: 1;
-	input {
+	input[type="checkbox"],
+	input[type="radio"] {
 		display: block;
 		position: absolute;
 		top: 0;left: 0;
@@ -142,6 +143,8 @@
 		opacity: 0;
 		margin: 0;
 		padding: 0;
+	}
+	input {
 		&:checked {
 			&~label {
 				&:after {
@@ -282,6 +285,7 @@
 	flex-direction: column;
 	min-height: 100%;
 	overflow: visible;
+	position: relative;
 	input {
 		&:checked {
 			&~label {
@@ -303,8 +307,40 @@
 		font-size: 12px;
 		line-height: 1.2;
 		color: var(--clr-base);
+		padding-bottom: 48px;
 		&:hover {
 			box-shadow: 0 6px 15px 0 rgba(90, 102, 64, 0.25);
+		}
+	}
+	.frm-field-counter {
+		position: absolute;
+		bottom: 10px;
+		right: 10px;
+		z-index: 3;
+		max-width: calc(100% - 20px);
+		padding: 0 30px;
+		.button-minus,
+		.button-plus {
+			width: 30px;
+			&:before, &:after {
+				left: 50%;
+			}
+		}
+		&:has(.button-minus.button-disabled) {
+			width: 30px;
+			padding: 0;
+			.form-input {
+				display: none;
+			}
+			.button-minus {
+				display: none;
+			}
+			.button-plus {
+				width: 28px;
+				&:before, &:after {
+					left: 50%;
+				}
+			}
 		}
 	}
 	.elm-photo {
