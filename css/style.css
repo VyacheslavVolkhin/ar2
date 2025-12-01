@@ -2199,6 +2199,62 @@ html.with-fancybox body.hide-scrollbar {
 /* ----------------------------------- *\
 			content styles
 \* ----------------------------------- */
+.contacts-box {
+  text-align: center;
+  position: relative;
+  margin-bottom: var(--sectionMargin);
+}
+.contacts-box .title-inner-wrap {
+  margin-bottom: 52px;
+}
+.contacts-box .slider-inner-wrap {
+  margin: 50px 0 0 0;
+}
+.contacts-box .actions-inner-wrap {
+  display: -ms-flexbox;
+  display: flex;
+  gap: 5px;
+  margin-bottom: 10px;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.contacts-box .actions-inner-wrap .btn {
+  height: 40px;
+  padding: 0 18px;
+  min-width: 130px;
+  font-size: 16px;
+  gap: 5px;
+}
+.contacts-box .actions-inner-wrap .button-border:not(:hover) {
+  border-color: rgba(90, 102, 64, 0.25);
+}
+.contacts-box .info-inner-wrap {
+  margin-bottom: 30px;
+  color: rgba(90, 102, 64, 0.5);
+}
+.contacts-box .action-inner-wrap .btn {
+  height: 50px;
+  min-width: 360px;
+  font-size: 1em;
+}
+.contacts-box .action-wrap {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+.contacts-box .elm-photo {
+  aspect-ratio: 270/320;
+  border-radius: 20px;
+}
+.contacts-box .slider-wrap {
+  overflow: visible;
+  margin: 0 -10px;
+}
+.contacts-box .sl-wrap {
+  padding: 0 10px;
+  width: 290px;
+}
 .cnt-box {
   border-radius: 20px;
   background: var(--clr-bg-light);
@@ -3079,6 +3135,45 @@ html.with-fancybox body.hide-scrollbar {
   .page-full:has(.map-fix) .form-box .frm-row-submit:has(.map-fix) {
     z-index: 1;
   }
+  .wrap:has(.contacts-box) .contacts-box {
+    position: relative;
+    z-index: 4;
+  }
+  .wrap:has(.contacts-box) .page-full {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    margin-bottom: 0;
+    -ms-flex-pack: end;
+        justify-content: flex-end;
+    padding-bottom: 0;
+    padding-top: 100px;
+    z-index: inherit;
+  }
+  .wrap:has(.contacts-box) .header {
+    display: none;
+  }
+  .wrap:has(.contacts-box) .footer {
+    display: none;
+  }
+  .wrap:has(.contacts-box) .elm-page-actions-panel {
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+  }
+  .wrap:has(.contacts-box) .main-top-box {
+    z-index: 3;
+  }
+  .wrap:has(.contacts-box) .main-top-box .bg-full-wrap {
+    height: 100dvh;
+  }
+  .wrap:has(.contacts-box) .main-top-box .bg-full-wrap:before,
+  .wrap:has(.contacts-box) .main-top-box .bg-full-wrap:after {
+    display: none;
+  }
+  .wrap:has(.contacts-box) .main-top-box .inner-wrap {
+    display: none;
+  }
   .wrap:has(.tiles-box .item-tile-cart) {
     background: var(--clr-bg);
   }
@@ -3167,6 +3262,62 @@ html.with-fancybox body.hide-scrollbar {
   }
   .wrap:has(.section-lk-back) .elm-page-actions-panel .btn-page-chat {
     display: none;
+  }
+  .contacts-box {
+    border-radius: 30px 30px 0 0;
+    background: var(--clr-bg-light);
+    margin-left: calc(var(--paddingContainer) * -1);
+    margin-right: calc(var(--paddingContainer) * -1);
+    margin-bottom: 0;
+    padding: 20px var(--paddingContainer);
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+  }
+  .contacts-box .slider-inner-wrap {
+    padding: 0;
+    -ms-flex-order: -1;
+        order: -1;
+    margin: 0 0 22px 0;
+  }
+  .contacts-box .title-inner-wrap {
+    margin: 0 0 20px 0;
+  }
+  .contacts-box .info-inner-wrap {
+    font-size: 14px;
+    line-height: 1.2;
+    margin-bottom: 30px;
+  }
+  .contacts-box .actions-inner-wrap {
+    margin-bottom: 10px;
+  }
+  .contacts-box .action-inner-wrap .btn {
+    font-size: 18px;
+    min-width: 0;
+    width: 360px;
+    max-width: 100%;
+  }
+  .contacts-box .slider-wrap {
+    margin: 0 -1px 0 -2px;
+  }
+  .contacts-box .sl-wrap {
+    padding: 0 1px 0 2px;
+    width: 105px;
+  }
+  .contacts-box .elm-photo {
+    aspect-ratio: 100/160;
+  }
+  .contacts-box .page-title {
+    font-size: 20px;
+    line-height: 1.2;
+    font-weight: 500;
+    font-family: 'PT Root UI', sans-serif;
+  }
+  .contacts-box .page-title * {
+    font-family: 'PT Root UI', sans-serif;
   }
   .side-profile-active {
     overflow: hidden;
@@ -3485,6 +3636,14 @@ html.with-fancybox body.hide-scrollbar {
   }
 }
 @media (min-width: 1024px) {
+  .contacts-box .slider-wrap {
+    overflow: hidden;
+    margin: 0 -15px;
+  }
+  .contacts-box .sl-wrap {
+    padding: 0 15px;
+    width: 25%;
+  }
   .section-order .content-wrap .form-box .frm-row-submit {
     display: -ms-flexbox;
     display: flex;
