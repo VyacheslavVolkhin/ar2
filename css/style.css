@@ -1411,6 +1411,10 @@ html.with-fancybox body.hide-scrollbar {
   display: flex;
   width: calc(50% - 5px);
 }
+.elm-page-actions-panel .panel-actions-wrap:last-child {
+  -ms-flex-pack: end;
+      justify-content: flex-end;
+}
 .elm-page-actions-panel .btn {
   width: 30px;
   height: 30px;
