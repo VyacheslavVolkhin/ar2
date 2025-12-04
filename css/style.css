@@ -1409,6 +1409,7 @@ html.with-fancybox body.hide-scrollbar {
   gap: 10px;
   display: -ms-flexbox;
   display: flex;
+  width: calc(50% - 5px);
 }
 .elm-page-actions-panel .btn {
   width: 30px;
