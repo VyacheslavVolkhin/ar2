@@ -1,0 +1,347 @@
+
+	.actions-box {
+		.items-wrap {
+			&:has(.type-lk) {
+				gap: 10px 0;
+				.item-wrap {
+					width: 100%;
+				}
+			}
+		}
+	}
+	.page-full {
+		&:has(.lk-photo-box) {
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-end;
+			margin-bottom: 0;
+			.lk-photo-box {
+				position: fixed;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				margin: 0;
+				.elm-photo {
+					aspect-ratio: inherit;
+					position: absolute;
+					top: 0;
+					bottom: 0;
+					left: 0;
+					right: 0;
+					border-radius: 0;
+					height: auto;
+				}
+			}
+		}
+		&:has(.map-fix) {
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-end;
+			margin-bottom: 0;
+			&:before {
+				content: "";
+				position: fixed;
+				bottom: 0;left: 0;right: 0;
+				height: 330px;
+				background: var(--clr-bg);
+				border-radius: 30px 30px 0 0;
+				z-index: 3;
+			}
+			.map-fix {
+				position: fixed;
+				top: 0;
+				bottom: 300px;
+				left: 0;
+				right: 0;
+				border-radius: 0;
+				height: auto;
+			}
+			.form-box {
+				margin-bottom: 0;
+				position: relative;
+				padding-bottom: 24px;
+				.frm-row, .frm-row-submit {
+					z-index: 5;
+					&:has(.map-fix) {
+						z-index: 1;
+					}
+				}
+			}
+		}
+	}
+	.wrap:has(.contacts-box) {
+		.contacts-box {
+			position: relative;
+			z-index: 4;
+		}
+		.page-full {
+			display: flex;
+			flex-direction: column;
+			margin-bottom: 0;
+			justify-content: flex-end;
+			padding-bottom: 0;
+			padding-top: 100px;
+			z-index: inherit;
+		}
+		.header {
+			display: none;
+		}
+		.footer {
+			display: none;
+		}
+		.elm-page-actions-panel {
+			display: inline-flex;
+		}
+		.main-top-box {
+			z-index: 3;
+			.bg-full-wrap {
+				height: 100dvh;
+				&:before, &:after {
+					display: none;
+				}
+			}
+			.inner-wrap {
+				display: none;
+			}
+		}
+	}
+	.wrap:has(.tiles-box .item-tile-cart) {
+		background: var(--clr-bg);
+		.page-full {
+			margin-bottom: 0;
+		}
+		.footer, .header {
+			display: none;
+		}
+		.elm-page-actions-panel {
+			display: inline-flex;
+			.btn-page-del {
+				display: flex;
+			}
+		}
+	}
+	.side-profile-active, .wrap:has(.card-box), .wrap:has(.tiles-box .item-tile-cart), .wrap:has(.section-lk) {
+		.page-full {
+			margin-bottom: 0;
+			padding-bottom: 100px;
+		}
+		.header {
+			.logo-inner-wrap, .info-wrap, .action-wrap {
+				opacity: 0;
+				pointer-events: none;
+			}
+		}
+		.footer {
+			display: none;
+		}
+		.elm-page-actions-panel {
+			display: inline-flex;
+		}
+	}
+	.wrap:has(.section-lk) {
+		overflow: hidden;
+		background: var(--clr-bg);
+		.page-full {
+			padding-bottom: 0;
+		}
+		.header {
+			display: none;
+			.panel-wrap {
+				display: none;
+			}
+		}
+		.page-outer-wrap {
+			padding-top: 80px;
+		}
+		.elm-page-actions-panel {
+			width: 100%;
+			.btn-page-chat {
+				display: flex;
+			}
+		}
+	}
+	.wrap:has(.section-lk-back) {
+		.side-profile-box {
+			display: none;
+		}
+		.elm-page-actions-panel {
+			width: 100%;
+			.btn-page-back {
+				display: flex;
+			}
+			.btn-page-chat {
+				display: none;
+			}
+		}
+	}
+	.contacts-box {
+		border-radius: 30px 30px 0 0;
+		background: var(--clr-bg-light);
+		margin-left: calc(var(--paddingContainer) * -1);
+    	margin-right: calc(var(--paddingContainer) * -1);
+		margin-bottom: 0;
+		padding: 20px var(--paddingContainer);
+		display: flex;
+		flex-direction: column;
+		box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.08);
+		overflow: hidden;
+		.slider-inner-wrap {
+			padding: 0;
+			order: -1;
+			margin: 0 0 22px 0;
+		}
+		.title-inner-wrap {
+			margin: 0 0 20px 0;
+		}
+		.info-inner-wrap {
+			font-size: 14px;
+			line-height: 1.2;
+			margin-bottom: 30px;
+		}
+		.actions-inner-wrap {
+			margin-bottom: 10px;
+		}
+		.action-inner-wrap {
+			.btn {
+				font-size: 18px;
+				min-width: 0;
+				width: 360px;
+				max-width: 100%;
+			}
+		}
+		.slider-wrap {
+			margin: 0 -1px 0 -2px;
+		}
+		.sl-wrap {
+			padding: 0 1px 0 2px;
+			width: 105px;
+		}
+		.elm-photo {
+			aspect-ratio: 100/160;
+		}
+		.page-title {
+			font-size: 20px;
+			line-height: 1.2;
+			font-weight: 500;
+			.ftext;
+		}
+	}
+	.side-profile-active {
+		overflow: hidden;
+		.wrap:has(.section-lk) {
+			.elm-page-actions-panel {
+				width: 100%;
+				.btn-page-chat {
+					display: none;
+				}
+			}
+		}
+		.header {
+			.panel-wrap {
+				display: none;
+			}
+		}
+		.wrap {
+			background: var(--clr-bg);
+		}
+		.elm-page-actions-panel {
+			width: 100%;
+			.btn-page-back {
+				display: flex;
+			}
+		}
+		.side-profile-box {
+			.popup-content-block {
+				display: block;
+			}
+		}
+	}
+	.side-profile-box {
+		.popup-content-block {
+			display: none;
+			position: fixed;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			background: var(--clr-bg);
+			padding: 80px var(--paddingContainer);
+			z-index: 90;
+			overflow-y: auto;
+			overflow-x: hidden;
+			scrollbar-width: none;
+			-ms-overflow-style: none;
+			&::-webkit-scrollbar {
+				width: 0;
+				height: 0;
+			}
+		}
+	}
+	.main-top-box {
+		&.mobile-small {
+			.box-inner-wrap {
+				min-height: 340px;
+			}
+		}
+		&.text-mobile-att {
+			.box-inner-wrap {
+				color: inherit;
+			}
+		}
+	}
+	.card-box {
+		position: relative;
+		.photos-inner-wrap {
+			display: block;
+			height: 100px;
+			width: 100px;
+			padding: 0;
+			margin: 0;
+			position: absolute;
+			top: 50%;left: 50%;
+			transform: translate(-50%, -50%);
+			overflow: hidden;
+			order: -100;
+			z-index: -100;
+			pointer-events: none;
+			opacity: 0;
+		}
+	}
+	.actions-box {
+		.scroll-outer-wrap {
+			.items-wrap {
+				flex-wrap: nowrap;
+			}
+			.item-wrap {
+				width: 380px;
+				padding: 0 10px;
+				max-width: calc(100dvw - var(--paddingContainer) - var(--paddingContainer) + 20px);
+			}
+		}
+		.sl-wrap {
+			width: 380px;
+			padding: 0 10px;
+			max-width: calc(100dvw - var(--paddingContainer) - var(--paddingContainer) + 20px);
+		}
+		.slider-wrap {
+			margin: 0 -10px;
+		}
+	}
+	.scroll-outer-wrap {
+		margin-left: calc(var(--paddingContainer) * -1);
+		margin-right: calc(var(--paddingContainer) * -1);
+		padding-left: var(--paddingContainer);
+		padding-right: var(--paddingContainer);
+		overflow-x: auto;
+		overflow-y: hidden;
+		scrollbar-width: none;
+		-ms-overflow-style: none;
+		&::-webkit-scrollbar {
+			width: 0;
+			height: 0;
+		}
+		.items-wrap {
+			flex-wrap: nowrap;
+		}
+	}

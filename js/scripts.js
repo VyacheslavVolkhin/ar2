@@ -1,4 +1,7 @@
+
+
 document.addEventListener("DOMContentLoaded", function() {
+
 
 	const bodyElem = document.querySelector('body')
 
@@ -59,6 +62,15 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
     });
+
+
+	//mask phone
+	let telInputs = document.querySelectorAll('input[type="tel"]');
+	let dateInputs = document.querySelectorAll('input.birthday');
+	if (telInputs) {
+		let im = new Inputmask("+7 (999) 999-99-99");
+		im.mask(telInputs);
+	}
 	
 	
 	

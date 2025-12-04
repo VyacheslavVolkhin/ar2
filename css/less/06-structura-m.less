@@ -1,0 +1,25 @@
+
+    .section-mobile-full {
+        margin-left: calc(var(--paddingContainer) * -1);
+        margin-right: calc(var(--paddingContainer) * -1);
+    }
+	.header {
+		.panel-order-wrap {
+			display: inline-flex;
+			width: auto;
+			position: fixed;
+			bottom: 30px;left: 50%;
+			transform: translateX(-50%);
+			gap: 40px;
+		}
+		.panel-title {
+			color: var(--clr-att);
+		}
+		.elm-photo {
+			&:nth-child(3) {
+				&~.elm-photo {
+					display: none;
+				}
+			}
+		}
+	}

@@ -1,0 +1,125 @@
+
+@media (max-width: 1023px) {
+    .section-mobile-full {
+        margin-left: calc(var(--paddingContainer) * -1);
+        margin-right: calc(var(--paddingContainer) * -1);
+    }
+}
+@media (max-width: 719px) {
+	.header {
+		.panel-order-wrap {
+			display: inline-flex;
+			width: auto;
+			position: fixed;
+			bottom: 30px;left: 50%;
+			transform: translateX(-50%);
+			gap: 40px;
+		}
+		.panel-title {
+			color: var(--clr-att);
+		}
+		.elm-photo {
+			&:nth-child(3) {
+				&~.elm-photo {
+					display: none;
+				}
+			}
+		}
+	}
+}
+@media (min-width: 720px) {
+	.header {
+		.actions-inner-wrap {
+			display: flex;
+			align-items: center;
+			gap: 20px;
+		}
+		.btn-action {
+			width: 50px;height: 50px;
+			.button-ico {
+				width: 24px;height: 24px;
+			}
+		}
+		.info-wrap {
+			display: block;
+		}
+	}
+	.footer {
+		text-align: left;
+		.inner-wrap {
+			display: flex;
+			gap: 30px;
+			padding-bottom: 40px;
+		}
+		.title-inner-wrap {
+			flex: 1;
+			margin: 0;
+		}
+		.info-inner-wrap {
+			text-align: right;
+			flex-shrink: 0;
+			max-width: 50%;
+		}
+		.soc-inner-wrap {
+			justify-content: flex-end;
+			margin-top: -5px;
+			margin-bottom: 20px;
+			gap: 10px;
+		}
+		br {
+			display: none;
+		}
+		.btn-action-ico.button-soc {
+			width: 32px;height: 32px;
+		}
+	}
+}
+@media (min-width: 1024px) {
+	.wrap-main {
+		.header {
+			padding-bottom: 30px;
+			position: fixed;
+		}
+		&.header-fixed {
+			.header {
+				padding-top: 10px;
+				padding-bottom: 10px;
+				background: rgba(0, 0, 0, 0.25);
+				.logo-inner-wrap {
+					width: 56px;
+				}
+			}
+		}
+	}
+	
+	.header {
+		transition: all ease 0.2s;
+		padding-top: 30px;
+		padding-bottom: 30px;;
+		.logo-inner-wrap {
+			transition: width ease 0.2s;
+		}
+	}
+	.footer {
+		.info-inner-wrap {
+			width: 59%;
+			max-width: inherit;
+			display: flex;
+			justify-content: space-between;
+		}
+		.soc-inner-wrap {
+			justify-content: flex-start;
+			flex-shrink: 0;
+			margin: -8px 0 0 0;
+		}
+		.studio-inner-wrap {
+			flex-shrink: 0;
+		}
+	}
+}
+@media (min-width: 1400px) {
+	.page-outer-wrap {
+		border-radius: 10rem 10rem 0 0;
+		padding-top: 40px;
+	}
+}
