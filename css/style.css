@@ -502,6 +502,7 @@ html.with-fancybox body.hide-scrollbar {
   border-radius: 25px;
   gap: 35px;
   white-space: nowrap;
+  overflow: visible;
 }
 .header .panel-items {
   padding-left: 15px;
