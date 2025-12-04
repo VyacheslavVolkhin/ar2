@@ -118,28 +118,28 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 		btnPlus.addEventListener('click', plusAction);
 		btnMinus.addEventListener('click', minusAction);
-		btnPlus.addEventListener('mousedown', function() {
-			intervalId = setInterval(plusAction, 200);
-		});
-		btnMinus.addEventListener('mousedown', function() {
-			intervalId = setInterval(minusAction, 200);
-		});
-		document.addEventListener('mouseup', function() {
-			clearInterval(intervalId);
-		});
-		btnPlus.addEventListener('touchstart', function(e) {
-			e.preventDefault();
-			plusAction()
-			intervalId = setInterval(plusAction, 200);
-		});
-		btnMinus.addEventListener('touchstart', function(e) {
-			e.preventDefault();
-			minusAction()
-			intervalId = setInterval(minusAction, 200);
-		});
-		document.addEventListener('touchend', function() {
-			clearInterval(intervalId);
-		});
+		// btnPlus.addEventListener('mousedown', function() {
+		// 	intervalId = setInterval(plusAction, 200);
+		// });
+		// btnMinus.addEventListener('mousedown', function() {
+		// 	intervalId = setInterval(minusAction, 200);
+		// });
+		// document.addEventListener('mouseup', function() {
+		// 	clearInterval(intervalId);
+		// });
+		// btnPlus.addEventListener('touchstart', function(e) {
+		// 	e.preventDefault();
+		// 	plusAction()
+		// 	intervalId = setInterval(plusAction, 200);
+		// });
+		// btnMinus.addEventListener('touchstart', function(e) {
+		// 	e.preventDefault();
+		// 	minusAction()
+		// 	intervalId = setInterval(minusAction, 200);
+		// });
+		// document.addEventListener('touchend', function() {
+		// 	clearInterval(intervalId);
+		// });
 
 		
 		
