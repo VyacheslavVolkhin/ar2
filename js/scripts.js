@@ -206,7 +206,6 @@ document.addEventListener("DOMContentLoaded", function() {
 					let tabsNavElementActive = tabsNavElements[iElements].dataset.tab
 					for (j = 0; j < tabsBlocks.length; j++) {
 						if (tabsBlocks[j].dataset.tab.toString().indexOf(tabsNavElementActive) > -1) {
-							console.log(tabsBlocks[j].dataset.tab.toString().indexOf(tabsNavElementActive))
 							tabsBlocks[j].classList.add('active')
 						}
 					}

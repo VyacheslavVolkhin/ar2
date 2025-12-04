@@ -5,46 +5,55 @@ document.addEventListener('DOMContentLoaded', function() {
     const plusButton = document.querySelector('.card-box .js-button-counter-plus');
     const minusButton = document.querySelector('.card-box .js-button-counter-minus');
     
-
-	if (counterInput) {
-		// Получаем цену за единицу из data-атрибута
-		const pricePerUnit = parseInt(priceElement.getAttribute('data-price'));
-		
-		function updatePrice() {
-			const quantity = parseInt(counterInput.value) || 1;
-			const totalPrice = quantity * pricePerUnit;
-			priceElement.textContent = totalPrice;
-		}
-		
-		// Обновляем цену при загрузке
-		updatePrice();
-		
-		// Обработчики событий
-		plusButton.addEventListener('click', function() {
-			setTimeout(updatePrice, 10);
-		});
-		
-		minusButton.addEventListener('click', function() {
-			setTimeout(updatePrice, 10);
-		});
-		
-		counterInput.addEventListener('input', updatePrice);
-		counterInput.addEventListener('change', updatePrice);
-	}
+    if (counterInput) {
+        // Получаем цену за единицу из data-атрибута
+        const pricePerUnit = parseInt(priceElement.getAttribute('data-price'));
+        
+        function updatePrice() {
+            const quantity = parseInt(counterInput.value) || 1;
+            const totalPrice = quantity * pricePerUnit;
+            priceElement.textContent = totalPrice;
+        }
+        
+        // Обновляем цену при загрузке
+        updatePrice();
+        
+        // Обработчики событий для десктопа и мобильных
+        const updatePriceHandler = () => {
+            setTimeout(updatePrice, 10);
+        };
+        
+        plusButton.addEventListener('click', updatePriceHandler);
+        plusButton.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+            updatePriceHandler();
+        });
+        
+        minusButton.addEventListener('click', updatePriceHandler);
+        minusButton.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+            updatePriceHandler();
+        });
+        
+        counterInput.addEventListener('input', updatePrice);
+        counterInput.addEventListener('change', updatePrice);
+    }
 });
 
-
-
-// Обработчик клика на кнопки плюс и минус в блоках каталога
-document.addEventListener('mousedown', function(e) {
+// Универсальная функция для обработки кликов/тапов
+function handleCounterAction(e, callback) {
+    // Для мобильных устройств используем touchstart
+    const isTouchEvent = e.type === 'touchstart';
+    const target = isTouchEvent ? e.touches[0].target : e.target;
+    
     // Обработка кнопки плюс
-    if (e.target.classList.contains('js-button-counter-plus') || 
-        e.target.closest('.js-button-counter-plus')) {
-			
-        const button = e.target.classList.contains('js-button-counter-plus') 
-            ? e.target 
-            : e.target.closest('.js-button-counter-plus');
-			
+    if (target.classList.contains('js-button-counter-plus') || 
+        target.closest('.js-button-counter-plus')) {
+        
+        const button = target.classList.contains('js-button-counter-plus') 
+            ? target 
+            : target.closest('.js-button-counter-plus');
+            
         const counter = button.closest('.js-counter');
         const input = counter.querySelector('.js-input-counter');
         const currentValue = parseInt(input.value);
@@ -69,24 +78,42 @@ document.addEventListener('mousedown', function(e) {
             
             animatePhotoToPanel(photo, clonedPhoto);
         }
+        
+        if (callback) callback();
     }
+}
+
+// Обработчики для десктопа и мобильных
+document.addEventListener('mousedown', function(e) {
+    handleCounterAction(e, function() {
+        setTimeout(updatePanelTotal, 50);
+    });
+});
+
+document.addEventListener('touchstart', function(e) {
+    handleCounterAction(e, function() {
+        setTimeout(updatePanelTotal, 50);
+    });
 });
 
 // Обработчик для обновления суммы в блоках каталога
-document.addEventListener('click', function(e) {
+function handleCatalogClick(e) {
+    const isTouchEvent = e.type === 'touchstart';
+    const target = isTouchEvent ? (e.touches[0]?.target || e.target) : e.target;
+    
     // Обработка кнопки плюс
-    if (e.target.classList.contains('js-button-counter-plus') || 
-        e.target.closest('.js-button-counter-plus')) {
+    if (target.classList.contains('js-button-counter-plus') || 
+        target.closest('.js-button-counter-plus')) {
         setTimeout(updatePanelTotal, 50);
     }
     
     // Обработка кнопки минус
-    if (e.target.classList.contains('js-button-counter-minus') || 
-        e.target.closest('.js-button-counter-minus')) {
+    if (target.classList.contains('js-button-counter-minus') || 
+        target.closest('.js-button-counter-minus')) {
         
-        const button = e.target.classList.contains('js-button-counter-minus') 
-            ? e.target 
-            : e.target.closest('.js-button-counter-minus');
+        const button = target.classList.contains('js-button-counter-minus') 
+            ? target 
+            : target.closest('.js-button-counter-minus');
         
         const counter = button.closest('.js-counter');
         const input = counter.querySelector('.js-input-counter');
@@ -98,6 +125,18 @@ document.addEventListener('click', function(e) {
         }
         
         setTimeout(updatePanelTotal, 50);
+    }
+}
+
+document.addEventListener('click', handleCatalogClick);
+document.addEventListener('touchstart', function(e) {
+    // Для touch событий предотвращаем стандартное поведение
+    if (e.target.classList.contains('js-button-counter-plus') || 
+        e.target.classList.contains('js-button-counter-minus') ||
+        e.target.closest('.js-button-counter-plus') ||
+        e.target.closest('.js-button-counter-minus')) {
+        e.preventDefault();
+        handleCatalogClick(e);
     }
 });
 
@@ -177,7 +216,7 @@ function removeFromPanel(counter) {
 
 // Обновление общей суммы в панели (объединенная функция для карточки и каталога)
 function updatePanelTotal() {
-	console.log('updatePanelTotal')
+    console.log('updatePanelTotal')
     const panelTitle = document.querySelector('#panel .panel-title');
     let newTotal = 0;
     
@@ -248,14 +287,17 @@ function updateItemsCount() {
 document.addEventListener('DOMContentLoaded', updatePanelTotal);
 
 // Обработчик клика на кнопку "В корзину" в карточке товара
-document.addEventListener('click', function(e) {
+function handleAddCartClick(e) {
+    const isTouchEvent = e.type === 'touchstart';
+    const target = isTouchEvent ? (e.touches[0]?.target || e.target) : e.target;
+    
     // Проверяем, была ли нажата кнопка с id="addcart"
-    if (e.target.id === 'addcart' || e.target.closest('#addcart')) {
+    if (target.id === 'addcart' || target.closest('#addcart')) {
         e.preventDefault();
         
-        const button = e.target.id === 'addcart' 
-            ? e.target 
-            : e.target.closest('#addcart');
+        const button = target.id === 'addcart' 
+            ? target 
+            : target.closest('#addcart');
         
         // Проверяем, что кнопка находится внутри карточки товара
         const cardBox = button.closest('.card-box');
@@ -265,11 +307,18 @@ document.addEventListener('click', function(e) {
         
         return false;
     }
+}
+
+document.addEventListener('click', handleAddCartClick);
+document.addEventListener('touchstart', function(e) {
+    if (e.target.id === 'addcart' || e.target.closest('#addcart')) {
+        handleAddCartClick(e);
+    }
 });
 
 // Функция для добавления товара из карточки в панель
 function addCardProductToPanel(cardBox) {
-	console.log('addCardProductToPanel')
+    console.log('addCardProductToPanel')
     // Находим .elm-photo из активного слайда слайдера
     const firstSlidePhoto = cardBox.querySelector('.slider-wrap .swiper-slide-active .elm-photo');
     
@@ -354,6 +403,7 @@ function addCardPhotoToPanel(originalPhoto, clonedPhoto, price) {
         setTimeout(updatePanelTotal, 100);
     }, 600);
 }
+
 // Анимация для уже добавленного товара
 function animateExistingProduct(originalPhoto) {
     const originalRect = originalPhoto.getBoundingClientRect();
@@ -387,5 +437,3 @@ function animateExistingProduct(originalPhoto) {
         document.body.removeChild(tempPhoto);
     }, 600);
 }
-
-
