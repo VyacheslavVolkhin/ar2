@@ -1411,13 +1411,13 @@ html.with-fancybox body.hide-scrollbar {
   display: flex;
 }
 .elm-page-actions-panel .btn {
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
   width: 30px;
   height: 30px;
   cursor: pointer;
   border-radius: 50%;
   display: none;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
 }
 .elm-page-actions-panel .btn.button-main {
   background-color: rgba(255, 255, 255, 0.5);
