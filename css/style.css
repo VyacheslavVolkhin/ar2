@@ -4354,7 +4354,10 @@ select.form-input:required:invalid {
 .wrap.wrap-app .header {
   height: 0;
   padding: 0;
-  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 .wrap.wrap-app .header .logo-inner-wrap,
 .wrap.wrap-app .header .info-wrap,
