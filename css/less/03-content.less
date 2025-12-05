@@ -240,6 +240,20 @@
 		.panel-title {
 			font-weight: 400;
 			flex: 1;
+			.form-input {
+				height: 30px;
+				border: none;
+				padding: 0;
+				border-radius: 0;
+				box-shadow: none;
+				background: none;
+				font-size: 20px;
+				text-align: left;
+			}
+			[placeholder]::-webkit-input-placeholder {color: rgb(90, 102, 64);}
+			[placeholder]:-moz-placeholder {color: rgb(90, 102, 64);}
+			[placeholder]::-moz-placeholder {color: rgb(90, 102, 64);}
+			[placeholder]:-ms-input-placeholder {color: rgb(90, 102, 64);}
 		}
 		.panel-action {
 			flex-shrink: 0;

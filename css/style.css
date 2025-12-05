@@ -2194,6 +2194,28 @@ html.with-fancybox body.hide-scrollbar {
   -ms-flex: 1;
       flex: 1;
 }
+.menu-inner-box .menu-panel-form .panel-title .form-input {
+  height: 30px;
+  border: none;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: none;
+  font-size: 20px;
+  text-align: left;
+}
+.menu-inner-box .menu-panel-form .panel-title [placeholder]::-webkit-input-placeholder {
+  color: #5a6640;
+}
+.menu-inner-box .menu-panel-form .panel-title [placeholder]:-moz-placeholder {
+  color: #5a6640;
+}
+.menu-inner-box .menu-panel-form .panel-title [placeholder]::-moz-placeholder {
+  color: #5a6640;
+}
+.menu-inner-box .menu-panel-form .panel-title [placeholder]:-ms-input-placeholder {
+  color: #5a6640;
+}
 .menu-inner-box .menu-panel-form .panel-action {
   -ms-flex-negative: 0;
       flex-shrink: 0;
